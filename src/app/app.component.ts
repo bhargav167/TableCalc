@@ -101,16 +101,19 @@ constructor() {
  this.LoadTotal();
 }
 Rate($event:any,i:number){ 
+  this.productData[i].Rate=$event.target.value;
   this.productData[i].Amount=$event.target.value* this.productData[i].Quantity;
   this.productData[i].DiscountAmount= this.productData[i].Amount - (this.productData[i].Amount*this.productData[i].Discount/100);
 this.LoadTotal();
 }
-Quantity($event:any,i:number){
-  this.productData[i].Amount=$event.target.value* this.productData[i].Rate;
+Quantity($event:any,i:number){ 
+  this.productData[i].Quantity=$event.target.value; 
+  this.productData[i].Amount= this.productData[i].Rate*$event.target.value;
   this.productData[i].DiscountAmount= this.productData[i].Amount - (this.productData[i].Amount*this.productData[i].Discount/100);
 this.LoadTotal();
 }
 Discount($event:any,i:number){
+  this.productData[i].Discount=$event.target.value;
   this.productData[i].DiscountAmount= this.productData[i].Amount - (this.productData[i].Amount*$event.target.value/100);
 this.LoadTotal(); 
 }
