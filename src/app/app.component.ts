@@ -19,8 +19,8 @@ constructor() {
       Quantity:23,
       Amount:2300,
       Discount:12,
-      DiscountAmount:2024
-
+      DiscountAmount:2024,
+      isEdit: false
     },
     {
       Name:'Product2',
@@ -28,7 +28,8 @@ constructor() {
       Quantity:5,
       Amount:250,  
       Discount:5,
-      DiscountAmount:237.5
+      DiscountAmount:237.5,
+      isEdit: false
     },
     {
       Name:'Product3',
@@ -36,7 +37,8 @@ constructor() {
       Quantity:128,
       Amount:3520,  
       Discount:10,
-      DiscountAmount:3168
+      DiscountAmount:3168,
+      isEdit: false
     },
     {
       Name:'Product4',
@@ -44,7 +46,8 @@ constructor() {
       Quantity:10,
       Amount:349,  
       Discount:35,
-      DiscountAmount:226.85
+      DiscountAmount:226.85,
+      isEdit: false
     }, 
     {
       Name:'Product5',
@@ -52,7 +55,8 @@ constructor() {
       Quantity:20,
       Amount:450,  
       Discount:50,
-      DiscountAmount:225
+      DiscountAmount:225,
+      isEdit: false
     },  
     {
       Name:'Product6',
@@ -60,42 +64,48 @@ constructor() {
       Quantity:12,
       Amount:480,  
       Discount:2,
-      DiscountAmount:470.4
+      DiscountAmount:470.4,
+      isEdit: false
     },  {
       Name:'Product7',
       Rate:88,
       Quantity:5,
       Amount:440,  
       Discount:6,
-      DiscountAmount:413.6
+      DiscountAmount:413.6,
+      isEdit: false
     },  {
       Name:'Product8',
       Rate:77,
       Quantity:9,
       Amount:693,  
       Discount:8,
-      DiscountAmount:637.56
+      DiscountAmount:637.56,
+      isEdit: false
     },  {
       Name:'Product9',
       Rate:245,
       Quantity:5,
       Amount:1225,  
       Discount:10,
-      DiscountAmount:1102.5
+      DiscountAmount:1102.5,
+      isEdit: false
     }, {
       Name:'Product10',
       Rate:16,
       Quantity:17,
       Amount:272,  
       Discount:0,
-      DiscountAmount:272
+      DiscountAmount:272,
+      isEdit: false
     },{
       Name:'Product11',
       Rate:13,
       Quantity:19,
       Amount:247,  
       Discount:4,
-      DiscountAmount:237.12
+      DiscountAmount:237.12,
+      isEdit: false
     },  
   ];
  this.LoadTotal();
@@ -117,7 +127,12 @@ Discount($event:any,i:number){
   this.productData[i].DiscountAmount= this.productData[i].Amount - (this.productData[i].Amount*$event.target.value/100);
 this.LoadTotal(); 
 }
-
+Edit(i:any){
+  this.productData.forEach((element: { isEdit: boolean; }) => {
+    element.isEdit = false;
+  });
+  i.isEdit = true;
+} 
 LoadTotal(){
   this.amount=0;
   this.discountAmount=0;
