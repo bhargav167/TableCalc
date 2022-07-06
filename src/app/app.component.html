@@ -1,0 +1,36 @@
+<div class="container mt-2">
+    <table class="table">
+       				 
+        <thead>
+          <tr>
+            <th scope="col"> Product Name</th>
+            <th scope="col">Rate</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Amount</th> 
+            <th scope="col">Discount</th>
+            <th scope="col">Discount Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+           <tr *ngFor="let item of productData; let i=index;">
+            <th scope="row">{{item.Name}}</th>
+            <td><input type="text" class="form-control" (keyup)="Rate($event,i)"  value="{{item.Rate}}" placeholder="Rate"></td>
+            <td><input type="text" class="form-control" (keyup)="Quantity($event,i)" value="{{item.Quantity}}" placeholder="Quantity"></td>
+            <td><input type="text" class="form-control" readonly value="{{item.Amount}}" placeholder="Amount"> </td>
+
+            <td><input type="text" class="form-control" (keyup)="Discount($event,i)" value="{{item.Discount}}" placeholder="Discount"> </td>
+            <td><input type="text" class="form-control" readonly value="{{item.DiscountAmount | number : '1.0-0'}}" placeholder="DiscountDiscountAmount"> </td>
+          </tr>  
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>  
+            <td> </td>  
+            <td></td>  
+            <td>{{amount}}</td>  
+            <td></td>  
+            <td>{{discountAmount}}</td>  
+          </tr>
+        </tfoot>
+      </table>
+</div>
